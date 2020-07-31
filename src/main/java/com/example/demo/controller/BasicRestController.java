@@ -12,6 +12,7 @@ import java.util.UUID;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -55,7 +56,7 @@ public class BasicRestController {
                     }))
       })
   public ResponseEntity<String> CreateSD(
-      @RequestParam("file") MultipartFile file, @RequestParam(required = false) String filename) {
+      @RequestParam("file") MultipartFile file, @RequestHeader(value = "filename", required = false) String filename) {
 
     return ResponseEntity.ok(UUID.randomUUID().toString());
 
